@@ -10,11 +10,11 @@ Este proyecto realiza un análisis de datos end-to-end sobre el comportamiento d
 
 ## 📋 Fases del Proyecto
 
-### 1. Extracción y Limpieza (Data Wrangling)
-* **Unión de Fuentes:** Merge de `Customer Flight Activity` y `Customer Loyalty History` mediante `loyalty_number`.
+### 1. Extracción y Limpieza:
 * **Normalización:** Estandarización de columnas.
 * **Tratamiento de Anomalías:** Corrección de valores negativos en la variable `salary`.
 * **Imputación de Nulos:** Uso de `SimpleImputer(strategy='median')` para la columna `salary` (25% de nulos), elegida por su robustez frente a outliers.
+* **Unión de Fuentes:** Merge de `Customer Flight Activity` y `Customer Loyalty History` mediante `loyalty_number`.
 
 ### 2. Análisis Exploratorio (EDA)
 * **Estadística Descriptiva:** Análisis de medidas de tendencia central y dispersión.
