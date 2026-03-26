@@ -1,45 +1,38 @@
-# Análisis de Lealtad y Actividad de Vuelo ✈️
+# Airline Loyalty Program Analysis ✈️
 
-Este proyecto consiste en un análisis de datos integral de un programa de lealtad de una aerolínea. El objetivo es explorar el comportamiento de los clientes, limpiar anomalías en los datos y extraer información estadística relevante para la toma de decisiones estratégicas.
+Este proyecto realiza un análisis de datos end-to-end sobre el comportamiento de clientes de una aerolínea, cubriendo desde el preprocesamiento técnico hasta la visualización de insights de negocio.
 
-## 📋 Estructura del Proyecto
+## 🛠️ Stack Tecnológico
+* **Lenguaje:** Python 3.10+
+* **Librerías de Datos:** `pandas`, `numpy`.
+* **Visualización:** `seaborn`, `matplotlib`.
+* **ML & Preprocesamiento:** `scikit-learn` (`SimpleImputer`).
 
-El análisis se divide en tres fases principales:
+## 📋 Fases del Proyecto
 
-1. **Fase 1: Limpieza y Preparación de Datos**: 
-   * Estandarización de nombres de columnas.
-   * Tratamiento de valores nulos (especialmente en la columna `salary`).
-   * Corrección de anomalías (conversión de salarios negativos).
-   * Unión de los datasets de actividad de vuelo e historial de lealtad.
+### 1. Extracción y Limpieza (Data Wrangling)
+* **Unión de Fuentes:** Merge de `Customer Flight Activity` y `Customer Loyalty History` mediante `loyalty_number`.
+* **Normalización:** Estandarización de columnas.
+* **Tratamiento de Anomalías:** Corrección de valores negativos en la variable `salary`.
+* **Imputación de Nulos:** Uso de `SimpleImputer(strategy='median')` para la columna `salary` (25% de nulos), elegida por su robustez frente a outliers.
 
-2. **Fase 2: Análisis Exploratorio de Datos (EDA)**:
-   * Cálculo de estadísticas descriptivas (media, mediana, desviación estándar).
-   * Identificación de valores atípicos (*outliers*) mediante el método del Rango Intercuartílico (IQR).
-   * Análisis de correlación de Spearman para variables numéricas.
+### 2. Análisis Exploratorio (EDA)
+* **Estadística Descriptiva:** Análisis de medidas de tendencia central y dispersión.
+* **Correlación:** Evaluación mediante el coeficiente de Spearman para detectar redundancias (ej. `distance` vs `points_accumulated`).
+* **Detección de Outliers:** Identificación de valores atípicos en datos numéricos `clv` y `salary` mediante el método IQR.
 
-3. **Fase 3: Visualización**:
-   * Creación de gráficos con Seaborn y Matplotlib para identificar patrones de comportamiento según estado civil, nivel educativo y tipo de tarjeta.
+### 3. Visualización
+* **Análisis Temporal:** Lineplots para detectar estacionalidad en vuelos.
+* **Segmentación:** Boxplots de salario por educación y gráficos de barras agrupados por género/estado civil.
+* **Composición:** Pie plot para la distribución de niveles de fidelidad (tarjetas).
 
-## 📊 Los Datasets
+## 🚀 Instrucciones de Uso
 
-El proyecto utiliza dos archivos fuente:
-* **Customer Flight Activity.csv**: Registros mensuales de vuelos reservados, distancia y puntos acumulados.
-* **Customer Loyalty History.csv**: Perfil demográfico del cliente (salario, educación, ubicación, CLV).
-
-## 🛠️ Tecnologías Utilizadas
-
-* **Python 3.10+**
-* **Pandas**: Manipulación y limpieza de datos.
-* **NumPy**: Operaciones numéricas.
-* **Seaborn & Matplotlib**: Visualización de datos.
-* **Scikit-learn**: Imputación de valores nulos (`SimpleImputer`).
-
-## 🚀 Cómo ejecutar el proyecto
-
-1. Asegúrate de tener instaladas las librerías necesarias:
-
+1. **Instalar Dependencias:**
+   ```bash
    pip install pandas numpy seaborn matplotlib scikit-learn
+Estructura de Archivos:
+Asegúrate de tener los archivos Customer Flight Activity.csv y Customer Loyalty History.csv en la misma raíz que el notebook.
 
-   Abre el archivo bbdd_flight_loyalty.ipynb en tu entorno de Jupyter Notebook o VS Code.
-
-   Ejecuta las celdas en orden secuencial para reproducir la limpieza y el análisis.
+Ejecución:
+Ejecuta bbdd_flight_loyalty.ipynb de forma secuencial para reproducir los resultados y gráficos.
